@@ -1,33 +1,47 @@
 #include <stdio.h>
-#include <conio.h>
+#include <string.h>
 #include <locale.h>
+#include <math.h>
 
-// O critério de avaliação semestral de determinada escola segue a regra:
-// P1 - primeira avaliação do semestre.
-// P2 - segunda avaliação do semestre.
-// Ativ - nota atribuída pelas atividades realizadas no semestre.
-// Média = P1 x 4 + P2 x 4 + Ativ x 2
-//--------------------------------------
-//                10
-            
-//Escreva um programa que leia as notas das provas (P1 e P2) e da atividade (Ativ),
-// calcule e mostre a média, seguindo o cálculo acima.
+// Elaborar um algoritmo que se utilize de funções com passagem de parâmetros. Ele deverá receber dois números inteiros (dividendo e divisor respectivamente), 
+// via teclado, e passar esses números, como parâmetros, para uma função. Essa função deverá ser capaz de calcular o valor da o primeiro número ELEVADO ao segundo número
+// e retornar, a quem a chamou, o resultado dessa operação. De posse dessa informação, o algoritmo que chamou essa função deverá apresentar em tela o valor dos dois números 
+// digitados e o cálculo da POTÊNCIA entre eles.
+// DICA: O aluno deverá desenvolver sua própria função, se utilizando de laços. 
+
+int func (int a, int b);
 
 int main ()
 {
-setlocale(LC_ALL,"Portuguese");
-float Md, P1, P2, ATIV;
+	int numeint;
+	int result;
+	int numeinT;
+	int R;
+	
+	setlocale (LC_ALL, "portuguese");
+	
+	printf ("\n Insira o primeiro número desejado: ");
+	scanf ("%d", &numeint);
+	
+	printf ("\n Insira o segundo número desejado: ");
+	scanf ("%d", &numeinT);
+	
+	
+	result = func (numeint, numeinT);
+	
+	printf ("\n O resultado da potenciação é: %d", result);
+	
+	printf ("\n O resultado do número elevado é: %d", R);
 
-printf("Insira a nota da primeira avaliação:");
-scanf ("%f",&P1);
-printf("Insira a nota da segunda avaliação :");
-scanf ("%f",&P2);
-printf("Insira a nota atribuída pelas atividades realizadas: ");
-scanf ("%f",&ATIV);
+}
 
-Md=(4*(P1+P2)+(2*ATIV))/10;
+int func (int numeint, int numeinT)
 
-
-printf ("\nMédia = %.1f",Md);
-getch();
+{
+	int I, R=1, X, result=1;
+	
+ 	for (I=1; I<=numeinT; ++I)
+	 	result *= numeint;
+ 	
+ 	return result; 
 }

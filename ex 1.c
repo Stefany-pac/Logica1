@@ -1,15 +1,40 @@
 #include <stdio.h>
-#include <conio.h>
+#include <locale.h>
 
-//Crie um programa que permita fazer a conversão cambial entre Reais e Dólares. Considere como taxa de câmbio US$1,00 = R$2,40. 
-//Leia um valor em Reais pelo teclado e mostre o correspondente em Dólares.
+//Faça um algoritmo que mostre na tela todos os números primos existentes entre 1 e um número n, inteiro e não nulo, digitado.
+
+
+void VerificarNumero (int n)
+{	
+	int i, achou=0;
+
+	for (i=2; i<n; i++)
+	{	if (n%i==0)
+		{	achou++;
+			break;
+		}
+	}
+	
+	if (achou==0)
+		printf ("%d ", n);
+}
+
+void VerificarPrimos (int n)
+{	int i;
+	setlocale (LC_ALL, "Portuguese");
+	
+	printf ("\n\n\n Números primos: ");
+	
+	for (i=1; i<=n; i++)
+	{	VerificarNumero (i);
+	}
+}
 
 int main ()
-{
-float CCREAIS, CCDOLARES;
-printf ("Informe o valor em reais: R$");
-scanf ("%f", &CCREAIS);
-CCDOLARES=CCREAIS/2,40;
-printf ("R$%f equivale a U$%f", CCREAIS, CCDOLARES);
-getch();
+{	int n;
+
+	printf ("\n Digite um numero: ");
+	scanf ("%d", &n);
+	
+	VerificarPrimos (n);
 }

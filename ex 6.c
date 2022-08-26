@@ -1,21 +1,34 @@
 #include <stdio.h>
-#include <conio.h>
 #include <locale.h>
+#include <math.h>
 
-// Dado o valor do raio (r) de uma circunferência, elaborar um programa para calcular 
-// e imprimir sua área (A) e o seu comprimento (C). 
-// A fórmula da área do círculo é A=(p=3,14) r2 e do comprimento é C=2(pi=3,14) r.
+// Faça um algoritmo que calcule a raiz quadrada de um número real qualquer N.
+// Sugerimos o uso de uma fórmula iterativa que foi deduzida com o uso do método de Newton-Rapson: XNOVO = (XANTERIOR / 2) + (N / (2 * XANTERIOR))
+// Onde N é valor cuja raiz será calculada; a partir de um valor XANTERIOR é calculado um valor XNOVO Este XNOVO passará a ser o XANTERIOR e, então, será calculado através 
+// da mesma fórmula, o novo valor de XNOVO.
+// Estes valores de XNOVO convergirão para a raiz quadrada de N. Sugerimos que adote como XANTERIOR inicial o valor N/2 e que interrompa os cálculos quando o módulo 
+// de (XNOVO - XANTERIOR ) / XANTERIOR for menor que 0.001 (isto é uma medida de precisão). Ex.: raiz quadrada de 9.
+
+// XNOVO 	XANTERIOR
+// 3,25 	4,5
+// 3,01 	3,25
+// 	3 		3,01
 
 int main ()
 {
-setlocale(LC_ALL,"Portuguese");
-float r, A, C;
-printf ("Insira o valor do raio da circunferência:"); 
-scanf ("%f",&r);
-A=3,14*r*r;
-C=(2*3,14*r);
-printf ("\n\n%f = área, %f = circunferência.\n",A,C);
-getch();
+	float XNOVO, XANTERIOR, I, N, R, X;
+	
+	
+	printf ("\t \n Digite o valor de X: ");
+	scanf ("%f", &N);
+	
+		do
+	{
+		XANTERIOR = N/2;
+		XNOVO = (XANTERIOR/2) + (N/ (2 * XANTERIOR));
+		
+	} 	while (XNOVO <= 0.001);
+	
+		printf ("\t \n Resultado: %f", XNOVO);
 }
-
 
